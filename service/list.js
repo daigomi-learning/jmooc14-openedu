@@ -11,7 +11,7 @@ dojo.require("dojo.data.ItemFileReadStore");
 dojo.require('dojo.request');
 
 dojo.ready(function(){
-    dojo.request.get("/service/servicecard.json",{
+    dojo.request.get("./servicecard.json",{
             handleAs: "json"
         }).then(function(items) {
         var datastore = new dojo.data.ItemFileReadStore({ data: { items: items }})
