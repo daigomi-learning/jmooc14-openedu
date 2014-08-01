@@ -62,7 +62,7 @@ dojo.ready(function(){
             dojo.byId("user_id").innerHTML = this.store.getValue(item, "user_id");
             dojo.byId("card_id").innerHTML = this.store.getValue(item, "id");
             dojo.byId("created").innerHTML = this.store.getValue(item, "created");
-            var image_src = "/service/screenshot/" + this.store.getValue(item, "screenshot");
+            var image_src = "./service/screenshot/" + this.store.getValue(item, "screenshot");
             console.log(image_src);
             node = dojo.byId("screenshot");
             console.log(dojo.getAttr(node, "src"));
