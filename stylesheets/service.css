@@ -1,0 +1,21 @@
+
+/*.card { width: 350px; padding: 0.5em; float: left; margin: 10px; }*/
+.card {
+    font-size: 14px; width: 450px; /*height: 300px; */float: left; padding: 10px 10px 10px 10px;
+    background-color: #ffffff;
+    border: 1px solid #f2f2f5;
+}
+
+.servicecards li { list-style-type: none }
+h3 { font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+
+.contents { font-size: 14px; padding: 10px; }
+.image_container { padding: 10px; text-align: center; }
+.date { font-size: 12px; }
+
+#screenshot { margin:0px auto; display:block }
+
+/*Grid need a explicit width/height by default*/
+#grid {
+    width: 650px;
+}

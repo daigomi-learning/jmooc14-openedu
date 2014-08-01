@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<style type="text/css">
+    @import "/lib/dojo/dijit/themes/claro/claro.css";
+    @import "/lib/dojo/dojox/grid/resources/Grid.css";
+    @import "/lib/dojo/dojox/grid/resources/claroGrid.css";
+
+    .dojoxGrid table {
+        margin: 0;
+    }
+	</style>
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/service.css">
+
+	<script>dojoConfig = {
+        parseOnLoad: true,
+        isDebug: true,
+        locale: 'en-us',
+        extraLocale: ['ja-jp']
+    }
+    </script>
+	<script src='/lib/dojo/dojo/dojo.js'></script>
+
+	<script>
+        dojo.require("dojox.grid.DataGrid");
+        dojo.require("dojox.data.CsvStore");
+	</script>
+</head>
+<body class="claro container">
+    <div class="contents">
+        <h1>Week2 レポート統計　</h1>
+        <div>2014年8月1日版</div>
+        <p>
+            <a href="https://lms.gacco.org/courses/gacco/ga004/2014_07/about">JMOOC講座「オープンエデュケーションと未来の学び」</a>のWeek2の課題「オープンエデュケーションのサービスやキーワードをまとめよう！」のとして
+            その結果概要を報告します。
+            この結果は後日追加、修正されることがあります。
+        </p>
+        <h2>提出状況</h2>
+        <p>
+            受講者約7000人のうち、1007件のレポート提出がありました。提出数の推移は以下の図の通りです。
+            <img src="date_count.png" width="400px">
+        </p>
+
+        <hr />
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <h2>タイトル</h2>
+                <p>サービスのタイトルを提出時のまま集計しました。
+                    同じサービスでも表現（つづりのミスを含む）が違うと別々にカウントされています。
+                </p>
+                <span data-dojo-type="dojox.data.CsvStore"
+                      data-dojo-id="store1" data-dojo-props="url:'./top30_titles.csv'">
+                </span>
+
+                <table data-dojo-type="dojox.grid.DataGrid"
+                    data-dojo-props="store:store1,
+                    query:{ title: '*' },
+                    clientSort:true, rowSelector:'20px',
+                    autoHeight:true"
+                    style="width: 350px">
+                    <thead>
+                        <tr>
+                            <th width="250px" field="title">タイトル</th>
+                            <th width="100px" field="count">count</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <h2>サービスのURL</h2>
+                <p>
+                    参照・引用元のURLをドメイン別に集計しました。
+                </p>
+                <span data-dojo-type="dojox.data.CsvStore"
+                      data-dojo-id="store2" data-dojo-props="url:'./top30_locations.csv'">
+                </span>
+
+                <table data-dojo-type="dojox.grid.DataGrid"
+                    data-dojo-props="store:store2,
+                    query:{ location: '*' },
+                    clientSort:true,
+                    autoHeight:true"
+                    style="width: 350px">
+                    <thead>
+                        <tr>
+                            <th width="250px" field="location">ドメイン名</th>
+                            <th width="100px" field="count">count</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

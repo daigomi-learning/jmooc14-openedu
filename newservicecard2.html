@@ -1,0 +1,47 @@
+<html ng-app="serviceCardApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
+    <script type="text/javascript">
+    var serviceCardApp = angular.module('serviceCardApp', ["ngResource"]);
+    serviceCardApp.controller('ServiceCardCtrl', ["$scope", "$resource", function ($scope, $resource) {
+        var contents = $resource("/service/servicecard.json");
+        // List（一番外側 []）を取得する場合は query()
+        // Object（一番外側が {}） get() を使用する
+        $scope.servicecards = contents.query();
+    }]);
+    </script>
+    <style>
+    body { font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+        background-color: #f1f1f1; /*#fafafc;*/　}
+    /*.card { width: 350px; padding: 0.5em; float: left; margin: 10px; }*/
+    .card {
+        font-size: 14px; width: 400px; /*height: 300px; */float: left; padding: 10px 10px 10px 10px;
+        background-color: #ffffff;
+        border: 1px solid #f2f2f5;
+    }
+
+    .servicecards li { list-style-type: none }
+    h3 { font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+    .content { font-size: 14px; }
+    .date { font-size: 12px; }
+    </style>
+  </head>
+<body ng-controller="ServiceCardCtrl">
+    <input type="text" ng-model="query.snippet" placeholder="検索">
+    <ul class="servicecards">
+        <li ng-repeat="card in servicecards | filter:query">
+            <div class="card" with="350px">
+                <h3>{{card.id}} {{card.title}}</h3>
+
+                <div class="contents">
+                    {{card.contents}}
+                </div>
+                <div class="reference">{{card.reference}}</div>
+
+                <div class="date"><i>Posted at {{card.created}}</i></div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

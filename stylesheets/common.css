@@ -1,0 +1,27 @@
+body {
+    /*font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;*/
+    background-color: #f1f1f1; /*#fafafc;*/　}
+
+.header {
+    margin: 15px;
+    border: 5px solid #f2f2f5;
+}
+.header-contents {
+    margin: 15px;
+}
+.logo {
+    float: left;
+    text-align: center;
+}
+#logo { margin:0px auto; display:block }
+
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 22px;
+}
+
+.contents {
+    background-color: #ffffff;
+}

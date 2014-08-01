@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>Week2 レポートで提出されたサービス一覧</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/lib/dojo/dijit/themes/claro/claro.css">
+	<style type="text/css">
+	@import "/lib/dojo/dojo/resources/dojo.css";
+	@import "/lib/dojo/dijit/themes/claro/claro.css";
+	@import "/lib/dojo/dojox/grid/enhanced/resources/claro/EnhancedGrid.css";
+	@import "/lib/dojo/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css";
+	</style>
+	<link rel="stylesheet" href="/stylesheets/common.css">
+	<link rel="stylesheet" href="/stylesheets/service.css">
+
+	<script>dojoConfig = {
+		parseOnLoad: true,
+		isDebug: true,
+        locale: 'en-us',
+        extraLocale: ['ja-jp']
+	}
+	</script>
+	<script src='/lib/dojo/dojo/dojo.js'></script>
+
+	<!-- Bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<script src="/service/list.js"></script>
+</head>
+<body class="claro container">
+	<div class="row">
+		<div class="header">
+			<!--
+			<div class="logo">
+				<img id="logo" src="/images/course_card04.jpg" height="75px">
+			</div>
+-->
+			<div class="header-contents">
+				<p>
+					<a href="https://lms.gacco.org/courses/gacco/ga004/2014_07/about">JMOOC講座「オープンエデュケーションと未来の学び」</a>の
+					Week2の課題「オープンエデュケーションのサービスやキーワードをまとめよう！」のレポートで
+					提出されたサービスの一覧です。HTML5に対応したブラウザでご覧ください。
+				</p>
+				<p>
+					<ul>
+						<li>表をクリックすると内容が表示されます。</li>
+						<li>Chromeでは見出しをクリックしてソートが可能です。</li>
+						<li>countは同一タイトルのレポート数です。</li>
+					</ul>
+				</p>
+				<p>
+					<strong>以下の点に注意をしてください。</strong></p>
+					<ul>
+						<li>ほぼ提出されたままの内容を自動処理してコンテンツ化しているので、綴りや内容に間違いが含まれていることがあります。</li>
+						<li>リファレンスのURLは正しくないか、宣伝のサイト、危険なサイトの可能性があります。</li>
+						<li>バグが多数残っていると思いますがご容赦ください。PCのChromeで見るのがよいようです。</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-5">
+			<div class="card">
+				<h3><span id="title">Title</span></h3>
+
+				<div class="contents" id="contents">
+					表をクリックすると内容が表示されます。
+					countは同一タイトルのレポート数です。
+				</div>
+				<div class="image_container">
+					<img id="screenshot" src="/images/no_image_available.png">
+				</div>
+				<div>ID #<span id="card_id">card.id</span></div>
+				<div class="reference" id="reference">Reference</div>
+
+				<div class="date"><i>Posted by user #<span id="user_id">user</span> at <span id="created">creation time</span></i></div>
+			</div>
+		</div><!-- for layout -->
+		<div class="col-xs-12 col-md-7">
+			<div id="gridDiv" class="grid_list">
+			</div>
+		</div><!-- for layout -->
+	</div>
+	<div class="row" id="footer">
+
+	</div>
+</body>
+</html>
