@@ -5,7 +5,7 @@
     <script type="text/javascript">
     var serviceCardApp = angular.module('serviceCardApp', ["ngResource"]);
     serviceCardApp.controller('ServiceCardCtrl', ["$scope", "$resource", function ($scope, $resource) {
-        var contents = $resource("/service/servicecard.json");
+        var contents = $resource("./service/servicecard.json");
         // List（一番外側 []）を取得する場合は query()
         // Object（一番外側が {}） get() を使用する
         $scope.servicecards = contents.query();
