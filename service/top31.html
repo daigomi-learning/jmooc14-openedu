@@ -25,9 +25,23 @@
     h3 { font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
     .content { font-size: 14px; }
     .date { font-size: 12px; }
+    .header {
+        margin: 30px; padding: 15px;
+        background-color: #ffffff;
+    }
     </style>
   </head>
 <body ng-controller="ServiceCardCtrl">
+    <div class="header">
+        <p>
+            「反転授業」で用いるために、Week2レポートで提出されたサービスの中から、
+            セレクトした31個のサービスです。
+        </p>
+        <p>
+            これらは多く取り上げられたサービス（<a href="./servicecard.html">タイトルの集計表を参照</a>）についてのレポートのうち、
+            主にワークショップでの使いやすさの観点から選んだものです。
+        </p>
+    </div>
     <ul class="servicecards">
         <li ng-repeat="card in servicecards | filter:query">
             <div class="card" with="350px">
