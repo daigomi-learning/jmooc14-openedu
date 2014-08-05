@@ -8,7 +8,12 @@
 dojo.require("dojox.grid.EnhancedGrid");
 dojo.require("dojox.grid.enhanced.plugins.Pagination");
 dojo.require("dojo.data.ItemFileReadStore");
+dojo.require("dojox.grid.enhanced.plugins.Filter");
 dojo.require('dojo.request');
+
+function showFilterBar(){
+    dijit.byId('grid').showFilterBar(true);
+}
 
 dojo.ready(function(){
     dojo.request.get("./servicecard.json",{
@@ -43,7 +48,16 @@ dojo.ready(function(){
                     maxPageStep: 4,
                             /*position of the pagination bar*/
                     position: "bottom"
+                },
+                filter: {
+                    // Show the closeFilterbarButton at the filter bar
+                    closeFilterbarButton: true,
+                    // Set the maximum rule count to 5
+                    ruleCount: 5,
+                    // Set the name of the items
+                    itemsName: "cards"
                 }
+
             }
         }, document.createElement('div'));
         /*append the new grid to the div*/
