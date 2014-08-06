@@ -93,6 +93,31 @@
                     </thead>
                 </table>
             </div>
+
+            <div class="col-xs-12 col-md-6">
+                <h2>頻出語</h2>
+                <p>
+                    よく使われた単語を集計しました。
+                </p>
+                <span data-dojo-type="dojox.data.CsvStore"
+                      data-dojo-id="store3" data-dojo-props="url:'./top30_words.csv'">
+                </span>
+
+                <table data-dojo-type="dojox.grid.DataGrid"
+                    data-dojo-props="store:store3,
+                    query:{ word: '*' },
+                    clientSort:true,
+                    autoHeight:true"
+                    style="width: 350px">
+                    <thead>
+                        <tr>
+                            <th width="250px" field="word">ドメイン名</th>
+                            <th width="100px" field="count">count</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
         </div>
     </div>
 </body>
