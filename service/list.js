@@ -10,9 +10,25 @@ dojo.require("dojox.grid.enhanced.plugins.Pagination");
 dojo.require("dojo.data.ItemFileReadStore");
 dojo.require("dojox.grid.enhanced.plugins.Filter");
 dojo.require('dojo.request');
+dojo.require('dojo.on');
+dojo.require('dojo.query');
+dojo.require('dijit.form.TextBox');
+dojo.require('dojo.keys');
 
 function showFilterBar(){
     dijit.byId('grid').showFilterBar(true);
+}
+
+function filter(){
+    var grid = dijit.byId("grid");
+    var query = dojo.query('#query_string')
+    grid.setFilter({ type: 'string', column: 'anycolumn', condition: 'contains', value: query });
+}
+
+function reset_filter(){
+    var grid = dijit.byId("grid");
+    dojo.byId("query_string").value = "";
+    grid.setFilter(null);
 }
 
 dojo.ready(function(){
@@ -48,14 +64,14 @@ dojo.ready(function(){
                     maxPageStep: 4,
                             /*position of the pagination bar*/
                     position: "bottom"
-                },
-                filter: {
+                }
+                ,filter: {
                     // Show the closeFilterbarButton at the filter bar
-                    closeFilterbarButton: true,
+//                    closeFilterbarButton: true,
                     // Set the maximum rule count to 5
-                    ruleCount: 5,
+//                    ruleCount: 5
                     // Set the name of the items
-                    itemsName: "cards"
+//                    itemsName: "cards"
                 }
 
             }
@@ -82,5 +98,15 @@ dojo.ready(function(){
             console.log(dojo.getAttr(node, "src"));
             dojo.setAttr(node, "src", image_src);
         });
+        dojo.on(dojo.byId("query_string"), "keydown", function(event) {
+            if (event.keyCode == dojo.keys.ENTER) {
+                var grid = dijit.byId("grid");
+                var query = dojo.byId('query_string').value;
+                grid.setFilter({ type: 'string', column: 'anycolumn', condition: 'contains', value: query });
+            }
+        })
+//        dojo.on(dojo.byId("filter_button"), "click", filter);
+        dojo.on(dojo.byId("reset_button"), "click", reset_filter);
+        dojo.byId("query_string").value = "";
     });
 })

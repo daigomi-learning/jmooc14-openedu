@@ -7,8 +7,6 @@
 
 	<!-- Bootstrap -->
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../lib/dojo/dijit/themes/claro/claro.css">
 	<style type="text/css">
 	@import "../lib/dojo/dojo/resources/dojo.css";
@@ -16,6 +14,8 @@
 	@import "../lib/dojo/dojox/grid/enhanced/resources/claro/EnhancedGrid.css";
 	@import "../lib/dojo/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css";
 	</style>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../stylesheets/common.css">
 	<link rel="stylesheet" href="../stylesheets/service.css">
 
@@ -87,6 +87,10 @@
 			</div>
 		</div><!-- for layout -->
 		<div class="col-xs-12 col-md-7">
+<!--			<div id="query_string" dojoType="dijit.form.TextBox"></div>-->
+			<input id="query_string" type="text" value="" />
+<!--			<button id="filter_button">フィルター</button>-->
+			<button id="reset_button">リセット</button>
 			<div id="gridDiv" class="grid_list">
 			</div>
 		</div><!-- for layout -->
