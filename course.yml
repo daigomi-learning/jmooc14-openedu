@@ -1,0 +1,45 @@
+Code: ga004
+Title: オープンエデュケーションと未来の学び
+Subtitle:
+Instructor:
+- 重田勝介
+Taught-in: 2014年7月
+Level:
+Description:
+Features:
+Syllabus:
+    Course Meeting Times:
+    Prerequisites:
+    Course Requirements:
+    Grading:
+    Problem Set Solutions:
+    Handouts:
+    A Note on Submission of Work:
+学習の手引:
+Lecture:
+-   Title: "Week1: オープンエデュケーションとは何か？"
+    Lecture:
+    - Title: 1-0 イントロダクション
+      Contents:
+      - &v1-0-1
+        url: xxx.mp4
+    - Title: 1-1
+    - Title: 1-2
+    - Title: 1-3
+    - Title: 1-4
+    - Title: 1-5
+    - Title: 1-6
+- Title: "Week2: MOOCとは何か？"
+- Title: "Week3: オープンエデュケーションが進む背景と課題"
+- Title: "Week4: オープンエデュケーションが変える学びと社会"
+Contents:
+- *v1-0-1
+Assignment:
+-
+-
+Quiz:
+-
+Survey:
+- Title: 開始アンケート
+- Title: 受講後アンケート
+Related:
