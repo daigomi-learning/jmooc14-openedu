@@ -5,7 +5,7 @@ Instructor:
 - 重田勝介
 - 武田俊之
 - 森秀樹
-Taught-in: 2014年7月
+Taught-in: 2014年7月7日-9月21日
 Level:
 Description:
 Features:
@@ -20,123 +20,233 @@ Syllabus:
 学習の手引:
 Lecture:
 -   Title: "Week1: オープンエデュケーションとは何か？"
-    Lecture:
-    - Title: 1-0 イントロダクション
+    Contents:
+    - &v1
+      Title: スライド (PDF)
+      type: text
+      subtype: pdf
+      filename: contents/ga004-week-1/week1.pdf
+    Section:
+    - Title: 講義1-0 イントロダクション
+      id: week1-0
       Contents:
-      - &v1-0-0
-        url: contents//ga004-week-1/ga004_01-00.mp4
-    - Title: 1-1
+      - &v1-0
+        url: http://youtu.be/h7XqtoZcT-M
+      - &v1-0-cc
+        url: contents/CC/1-0.txt
+    - Title: 講義1-1 オープンエデュケーションとは何か
+      id: week1-1
       Contents:
-      - &v1-0-1
-        url: contents//ga004-week-1/ga004_01-01.mp4
-    - Title: 1-2
+      - &v1-1
+        url: http://youtu.be/fNMWFl3wtkc
+      - &v1-1-cc
+        url: contents/CC/1-1.txt
+    - Title: 講義1-2 オープンエデュケーションの特徴 オープン教材の制作
+      id: week1-2
       Contents:
-      - &v1-0-2
-        url: contents//ga004-week-1/ga004_01-02.mp4
-    - Title: 1-3
+      - &v1-2
+        url: http://youtu.be/CwM_WygeMo0
+      - &v1-2-cc
+        url: contents/CC/1-2.txt
+    - Title: 講義1-3 オープンエデュケーションの特徴 オープン教材を公開するウェブサイト（1）
+      id: week1-3
       Contents:
-      - &v1-0-3
-        url: contents//ga004-week-1/ga004_01-03.mp4
-    - Title: 1-4
+      - &v1-3
+        url: http://youtu.be/I6H4Vc4JyjA
+      - &v1-3-cc
+        url: contents/CC/1-3.txt
+    - Title: 講義1-4 オープンエデュケーションの特徴 オープン教材を公開するウェブサイト（2）
+      id: week1-4
       Contents:
-      - &v1-0-4
-        url: contents//ga004-week-1/ga004_01-04.mp4
-    - Title: 1-5
+      - &v1-4
+        url: http://youtu.be/FmPtR60R-6w
+      - &v1-4-cc
+        url: contents/CC/1-4.txt
+    - Title: 講義1-5 オープンエデュケーションの特徴 オープン教材を使った学習コミュニティ（1）
+      id: week1-5
       Contents:
-      - &v1-0-5
-        url: contents//ga004-week-1/ga004_01-05.mp4
-    - Title: 1-6
+      - &v1-5
+        url: http://youtu.be/vyBnjcXQOtg
+      - &v1-5-cc
+        url: contents/CC/1-5.txt
+    - Title: 講義1-6 オープンエデュケーションの特徴 オープン教材を使った学習コミュニティ（2）
+      id: week1-6
       Contents:
-      - &v1-0-6
-        url: contents//ga004-week-1/ga004_01-06.mp4
+      - &v1-6
+        url: http://youtu.be/k70JvfGC4O8
+      - &v1-6-cc
+        url: contents/CC/1-6.txt
 -   Title: "Week2: MOOCとは何か？"
-    Lecture:
-    -   Title: 2-0 イントロダクション
+    Contents:
+    - &v2
+      Title: スライド (PDF)
+      type: text
+      subtype: pdf
+      filename: contents/ga004-week-2/week2.pdf
+    Section:
+    -   Title: 講義2-1 MOOCとは
+        id: week2-1
         Contents:
-        - &v2-0-0
-          url: contents//ga004-week-2/ga004_02-00.mp4
-    -   Title: 2-1
+        - &v2-1
+          url: http://youtu.be/S2FQlXDhAiQ
+        - &v2-1-cc
+          url: contents/CC/2-1.txt
+    -   Title: 講義2-2 MOOCの事例
+        id: week2-2
         Contents:
-        - &v2-0-1
-          url: contents//ga004-week-2/ga004_02-01.mp4
-    -   Title: 2-2
+        - &v2-2
+          url: http://youtu.be/_c5TKvcu4CI
+        - &v2-2-cc
+          url: contents/CC/2-2.txt
+    -   Title: 講義2-3 MOOCの特徴
+        id: week2-3
         Contents:
-        - &v2-0-2
-          url: contents//ga004-week-2/ga004_02-02.mp4
-    -   Title: 2-3
+        - &v2-3
+          url: http://youtu.be/k8kD1O8NObw
+        - &v2-3-cc
+          url: contents/CC/2-3.txt
+    -   Title: 講義2-4 MOOCと大学教育の融合
+        id: week2-4
         Contents:
-        - &v2-0-3
-          url: contents//ga004-week-2/ga004_02-03.mp4
-    -   Title: 2-4
+        - &v2-4
+          url: http://youtu.be/ZJ4fIzjj4HY
+        - &v2-4-cc
+          url: contents/CC/2-4.txt
+    -   Title: 講義2-5 MOOCへの批判
+        id: week2-5
         Contents:
-        - &v2-0-4
-          url: contents//ga004-week-2/ga004_02-04.mp4
-    -   Title: 2-5
-        Contents:
-        - &v2-0-5
-          url: contents//ga004-week-2/ga004_02-05.mp4
+        - &v2-5
+          url: http://youtu.be/rkj_7gmnjgw
+        - &v2-5-cc
+          url: contents/CC/2-5.txt
 -   Title: "Week3: オープンエデュケーションが進む背景と課題"
-    Lecture:
-    -   Title: 3-0 イントロダクション
+    Contents:
+    - &v3
+      Title: スライド (PDF)
+      type: text
+      subtype: pdf
+      filename: contents/ga004-week-3/week3.pdf
+    Section:
+    -   Title: 講義3-1 オープンエデュケーションの背景　理念的側面
+        id: week3-1
         Contents:
-        -   &v3-0-0
-            url: contents//ga004-week-3/ga004_03-00.mp4
-    -   Title: 3-1
+        -   &v3-1
+            url: http://youtu.be/x2CSUgWk-no
+        - &v3-1-cc
+          url: contents/CC/3-1.txt
+    -   Title: 講義3-2 オープンエデュケーションの背景　実利的側面
+        id: week3-2
         Contents:
-        -   &v3-0-1
-            url: contents//ga004-week-3/ga004_03-01.mp4
-    -   Title: 3-2
+        -   &v3-2
+            url: http://youtu.be/CKYF2JRHk2A
+        - &v3-2-cc
+          url: contents/CC/3-2.txt
+    -   Title: 講義3-3 社会課題に応えるオープンエデュケーション
+        id: week3-3
         Contents:
-        -   &v3-0-2
-            url: contents//ga004-week-3/ga004_03-02.mp4
-    -   Title: 3-3
+        -   &v3-3
+            url: http://youtu.be/r272qiMwA9I
+        - &v3-3-cc
+          url: contents/CC/3-3.txt
+    -   Title: 講義3-4 オープンエデュケーションの課題(1)
+        id: week3-4
         Contents:
-        -   &v3-0-3
-            url: contents//ga004-week-3/ga004_03-03.mp4
-    -   Title: 3-4
+        -   &v3-4
+            url: http://youtu.be/Ei4Di_kFeg0
+        - &v3-4-cc
+          url: contents/CC/3-4.txt
+    -   Title: 講義3-5
+        id: week3-5
         Contents:
-        -   &v3-0-4
-            url: contents//ga004-week-3/ga004_03-04.mp4
-    -   Title: 3-5
-        Contents:
-        -   &v3-0-5
-            url: contents//ga004-week-3/ga004_03-05.mp4
+        -   &v3-5
+            url: http://youtu.be/aIwW21T6acY
+        - &v3-5-cc
+          url: contents/CC/3-5.txt
 -   Title: "Week4: オープンエデュケーションが変える学びと社会"
-    Lecture:
-    -   Title: 4-0 イントロダクション
+    Contents:
+    - &v4
+      Title: スライド (PDF)
+      type: text
+      subtype: pdf
+      filename: contents/ga004-week-4/week4.pdf
+    Section:
+    -   Title: 講義4-1 「デジタル化」が教育に与えるインパクト
+        id: week4-1
         Contents:
-        -   &v4-0-0
-            url: contents//ga004-week-4/ga004_04-00.mp4
-    -   Title: 4-1
+        - &v4-1
+          url: http://youtu.be/yaym65p1cqo
+        - &v4-1-cc
+          url: contents/CC/4-1.txt
+    -   Title: 講義4-2 「オープン化」が教育に与える インパクト
+        id: week4-2
         Contents:
-        - &v4-0-1
-          url: contents//ga004-week-4/ga004_04-01.mp4
-    -   Title: 4-2
+        - &v4-2
+          url: http://youtu.be/U38n8424OpU
+        - &v4-2-cc
+          url: contents/CC/4-2.txt
+    -   Title: 講義4-3 教育の「イノベーション」とMOOC
+        id: week4-3
         Contents:
-        - &v4-0-2
-          url: contents//ga004-week-4/ga004_04-02.mp4
-    -   Title: 4-3
+        - &v4-3
+          url: http://youtu.be/5BOT9LbTol4
+        - &v4-3-cc
+          url: contents/CC/4-3.txt
+    -   Title: 講義4-4 オープンエデュケーションがもたらす多様な「学び」
+        id: week4-4
         Contents:
-        - &v4-0-3
-          url: contents//ga004-week-4/ga004_04-03.mp4
-    -   Title: 4-4
+        - &v4-4
+          url: http://youtu.be/DjqpEPsbaRo
+        - &v4-4-cc
+          url: contents/CC/4-4.txt
+    -   Title: 講義4-5 オープンエデュケーションと未来の大学
+        id: week4-5
         Contents:
-        - &v4-0-4
-          url: contents//ga004-week-4/ga004_04-04.mp4
-    -   Title: 4-5
+        - &v4-5
+          url: http://youtu.be/3GxM6Su-jwU
+        - &v4-5-cc
+          url: contents/CC/4-5.txt
+    -   Title: 講義4-6 オープンエデュケーションと未来の学び
+        id: week4-6
         Contents:
-        - &v4-0-5
-          url: contents//ga004-week-4/ga004_04-05.mp4
-    -   Title: 4-6
+        - &v4-6
+          url: http://youtu.be/L4Nbf3HvROA
+        - &v4-6-cc
+          url: contents/CC/4-6.txt
+    -   Title: おわりに
+        id: week4-7
         Contents:
-        - &v4-0-6
-          url: contents//ga004-week-4/ga004_04-06.mp4
-    -   Title: 4-7
-        Contents:
-        - &v4-0-7
-          url: contents//ga004-week-4/ga004_04-07.mp4
+        - &v4-7
+          url: http://youtu.be/lkBMDFRaoNQ
+        - &v4-7-cc
+          url: contents/CC/4-7.txt
 Contents:
-- *v1-0-1
+- *v1
+- *v1-1
+- *v1-2
+- *v1-3
+- *v1-4
+- *v1-5
+- *v1-6
+- *v2
+- *v2-1
+- *v2-2
+- *v2-3
+- *v2-4
+- *v2-5
+- *v3
+- *v3-1
+- *v3-2
+- *v3-3
+- *v3-4
+- *v3-5
+- *v4
+- *v4-1
+- *v4-2
+- *v4-3
+- *v4-4
+- *v4-5
+- *v4-6
+- *v4-7
 Assignment:
 -
 -

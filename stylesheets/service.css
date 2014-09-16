@@ -19,3 +19,25 @@ h3 { font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic Pr
 #grid {
     width: 650px;
 }
+
+.contents-frame {
+/*    background-color: #ffeb95;*/
+background-color: #fffecb;
+/*    color: #0097dc;*/
+    border: solid 5px;
+    border-color: #fffecb;
+    margin-bottom: 20px;
+}
+
+#menu {
+    background-color: #faefff;
+}
+.table {
+    background-color: #ffffff;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
