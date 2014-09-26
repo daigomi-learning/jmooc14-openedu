@@ -41,6 +41,8 @@ Lecture:
         url: http://youtu.be/fNMWFl3wtkc
       - &v1-1-cc
         url: contents/CC/1-1.txt
+      - &v1-1-q
+        url: quiz/1-1.html
     - Title: 講義1-2 オープンエデュケーションの特徴 オープン教材の制作
       id: week1-2
       Contents:
@@ -48,6 +50,8 @@ Lecture:
         url: http://youtu.be/CwM_WygeMo0
       - &v1-2-cc
         url: contents/CC/1-2.txt
+      - &v1-2-q
+        url: quiz/1-2.html
     - Title: 講義1-3 オープンエデュケーションの特徴 オープン教材を公開するウェブサイト（1）
       id: week1-3
       Contents:
@@ -55,6 +59,8 @@ Lecture:
         url: http://youtu.be/I6H4Vc4JyjA
       - &v1-3-cc
         url: contents/CC/1-3.txt
+      - &v1-3-q
+        url: quiz/1-1.html
     - Title: 講義1-4 オープンエデュケーションの特徴 オープン教材を公開するウェブサイト（2）
       id: week1-4
       Contents:
@@ -62,6 +68,8 @@ Lecture:
         url: http://youtu.be/FmPtR60R-6w
       - &v1-4-cc
         url: contents/CC/1-4.txt
+      - &v1-4-q
+        url: quiz/1-4.html
     - Title: 講義1-5 オープンエデュケーションの特徴 オープン教材を使った学習コミュニティ（1）
       id: week1-5
       Contents:
@@ -69,6 +77,8 @@ Lecture:
         url: http://youtu.be/vyBnjcXQOtg
       - &v1-5-cc
         url: contents/CC/1-5.txt
+      - &v1-5-q
+        url: quiz/1-5.html
     - Title: 講義1-6 オープンエデュケーションの特徴 オープン教材を使った学習コミュニティ（2）
       id: week1-6
       Contents:
@@ -76,6 +86,8 @@ Lecture:
         url: http://youtu.be/k70JvfGC4O8
       - &v1-6-cc
         url: contents/CC/1-6.txt
+      - &v1-6-q
+        url: quiz/1-6.html
 -   Title: "Week2: MOOCとは何か？"
     Contents:
     - &v2
@@ -91,6 +103,8 @@ Lecture:
           url: http://youtu.be/S2FQlXDhAiQ
         - &v2-1-cc
           url: contents/CC/2-1.txt
+        - &v2-1-q
+          url: quiz/2-1.html
     -   Title: 講義2-2 MOOCの事例
         id: week2-2
         Contents:
@@ -98,6 +112,8 @@ Lecture:
           url: http://youtu.be/_c5TKvcu4CI
         - &v2-2-cc
           url: contents/CC/2-2.txt
+        - &v2-2-q
+          url: quiz/2-2.html
     -   Title: 講義2-3 MOOCの特徴
         id: week2-3
         Contents:
@@ -105,6 +121,8 @@ Lecture:
           url: http://youtu.be/k8kD1O8NObw
         - &v2-3-cc
           url: contents/CC/2-3.txt
+        - &v2-3-q
+          url: quiz/2-3.html
     -   Title: 講義2-4 MOOCと大学教育の融合
         id: week2-4
         Contents:
@@ -112,6 +130,8 @@ Lecture:
           url: http://youtu.be/ZJ4fIzjj4HY
         - &v2-4-cc
           url: contents/CC/2-4.txt
+        - &v2-4-q
+          url: quiz/2-4.html
     -   Title: 講義2-5 MOOCへの批判
         id: week2-5
         Contents:
@@ -119,6 +139,8 @@ Lecture:
           url: http://youtu.be/rkj_7gmnjgw
         - &v2-5-cc
           url: contents/CC/2-5.txt
+        - &v2-5-q
+          url: quiz/2-5.html
 -   Title: "Week3: オープンエデュケーションが進む背景と課題"
     Contents:
     - &v3
@@ -134,6 +156,8 @@ Lecture:
             url: http://youtu.be/x2CSUgWk-no
         - &v3-1-cc
           url: contents/CC/3-1.txt
+        - &v3-1-q
+          url: quiz/3-1.html
     -   Title: 講義3-2 オープンエデュケーションの背景　実利的側面
         id: week3-2
         Contents:
@@ -141,6 +165,8 @@ Lecture:
             url: http://youtu.be/CKYF2JRHk2A
         - &v3-2-cc
           url: contents/CC/3-2.txt
+        - &v3-2-q
+          url: quiz/3-2.html
     -   Title: 講義3-3 社会課題に応えるオープンエデュケーション
         id: week3-3
         Contents:
@@ -148,6 +174,8 @@ Lecture:
             url: http://youtu.be/r272qiMwA9I
         - &v3-3-cc
           url: contents/CC/3-3.txt
+        - &v3-3-q
+          url: quiz/3-3.html
     -   Title: 講義3-4 オープンエデュケーションの課題(1)
         id: week3-4
         Contents:
@@ -155,6 +183,8 @@ Lecture:
             url: http://youtu.be/Ei4Di_kFeg0
         - &v3-4-cc
           url: contents/CC/3-4.txt
+        - &v3-4-q
+          url: quiz/3-4.html
     -   Title: 講義3-5
         id: week3-5
         Contents:
@@ -162,6 +192,8 @@ Lecture:
             url: http://youtu.be/aIwW21T6acY
         - &v3-5-cc
           url: contents/CC/3-5.txt
+        - &v3-5-q
+          url: quiz/3-5.html
 -   Title: "Week4: オープンエデュケーションが変える学びと社会"
     Contents:
     - &v4
@@ -177,6 +209,8 @@ Lecture:
           url: http://youtu.be/yaym65p1cqo
         - &v4-1-cc
           url: contents/CC/4-1.txt
+        - &v4-1-q
+          url: quiz/4-1.html
     -   Title: 講義4-2 「オープン化」が教育に与える インパクト
         id: week4-2
         Contents:
@@ -184,6 +218,8 @@ Lecture:
           url: http://youtu.be/U38n8424OpU
         - &v4-2-cc
           url: contents/CC/4-2.txt
+        - &v4-2-q
+          url: quiz/4-2.html
     -   Title: 講義4-3 教育の「イノベーション」とMOOC
         id: week4-3
         Contents:
@@ -191,6 +227,8 @@ Lecture:
           url: http://youtu.be/5BOT9LbTol4
         - &v4-3-cc
           url: contents/CC/4-3.txt
+        - &v4-3-q
+          url: quiz/4-3.html
     -   Title: 講義4-4 オープンエデュケーションがもたらす多様な「学び」
         id: week4-4
         Contents:
@@ -198,6 +236,8 @@ Lecture:
           url: http://youtu.be/DjqpEPsbaRo
         - &v4-4-cc
           url: contents/CC/4-4.txt
+        - &v4-4-q
+          url: quiz/4-4.html
     -   Title: 講義4-5 オープンエデュケーションと未来の大学
         id: week4-5
         Contents:
@@ -205,6 +245,8 @@ Lecture:
           url: http://youtu.be/3GxM6Su-jwU
         - &v4-5-cc
           url: contents/CC/4-5.txt
+        - &v4-5-q
+          url: quiz/4-5.html
     -   Title: 講義4-6 オープンエデュケーションと未来の学び
         id: week4-6
         Contents:
@@ -212,6 +254,8 @@ Lecture:
           url: http://youtu.be/L4Nbf3HvROA
         - &v4-6-cc
           url: contents/CC/4-6.txt
+        - &v4-6-q
+          url: quiz/4-6.html
     -   Title: おわりに
         id: week4-7
         Contents:
@@ -219,6 +263,8 @@ Lecture:
           url: http://youtu.be/lkBMDFRaoNQ
         - &v4-7-cc
           url: contents/CC/4-7.txt
+        - &v4-7-q
+          url: quiz/4-7.html
 Contents:
 - *v1
 - *v1-1
