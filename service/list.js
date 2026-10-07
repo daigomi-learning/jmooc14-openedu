@@ -1,112 +1,84 @@
-//	require([
-//	    "dojox/grid/EnhancedGrid",
-//		"dojox/grid/enhanced/plugins/Pagination",
-//	    "dojo/data/ItemFileReadStore",
-//	    "dojo/request",
-//	    "dojo/domReady!"
-//		], function(EnhancedGrid, Memory, ObjectStore, request){
-dojo.require("dojox.grid.EnhancedGrid");
-dojo.require("dojox.grid.enhanced.plugins.Pagination");
-dojo.require("dojo.data.ItemFileReadStore");
-dojo.require("dojox.grid.enhanced.plugins.Filter");
-dojo.require('dojo.request');
-dojo.require('dojo.on');
-dojo.require('dojo.query');
-dojo.require('dijit.form.TextBox');
-dojo.require('dojo.keys');
+import {text, element, setScreenshot, loadCards} from './cards.js';
 
-function showFilterBar(){
-    dijit.byId('grid').showFilterBar(true);
+const tableBody = document.querySelector('#report-rows');
+const query = document.querySelector('#query_string');
+const pageSize = document.querySelector('#page-size');
+const status = document.querySelector('#list-status');
+const previous = document.querySelector('#previous-page');
+const next = document.querySelector('#next-page');
+const pageNumber = document.querySelector('#page-number');
+const sortButtons = [...document.querySelectorAll('[data-sort]')];
+const collator = new Intl.Collator('ja', {numeric: true, sensitivity: 'base'});
+let records = [];
+let visible = [];
+let page = 0;
+let sortKey = '';
+let ascending = true;
+
+function showCard(card) {
+    for (const [id, field] of Object.entries({title: 'title', contents: 'contents', reference: 'reference',
+        user_id: 'user_id', card_id: 'id', created: 'created'})) {
+        document.getElementById(id).textContent = text(card[field]);
+    }
+    document.querySelector('#author').hidden = !text(card.user_id);
+    setScreenshot(document.querySelector('#screenshot'), card.screenshot);
 }
 
-function filter(){
-    var grid = dijit.byId("grid");
-    var query = dojo.query('#query_string')
-    grid.setFilter({ type: 'string', column: 'anycolumn', condition: 'contains', value: query });
+function render() {
+    const size = Number(pageSize.value);
+    const pages = Math.max(1, Math.ceil(visible.length / size));
+    page = Math.max(0, Math.min(page, pages - 1));
+    const fragment = document.createDocumentFragment();
+    for (const card of visible.slice(page * size, (page + 1) * size)) {
+        const row = element('tr');
+        row.append(element('td', card.id));
+        const title = element('td');
+        const button = element('button', text(card.title) || '（無題）', 'report-title');
+        button.type = 'button';
+        button.addEventListener('click', () => showCard(card));
+        title.append(button);
+        row.append(title, element('td', card.reference), element('td', card.count));
+        row.addEventListener('click', event => { if (event.target !== button) showCard(card); });
+        fragment.append(row);
+    }
+    tableBody.replaceChildren(fragment);
+    status.textContent = visible.length ? `${visible.length} 件中 ${page * size + 1}〜${Math.min((page + 1) * size, visible.length)} 件` : '該当するレポートはありません。';
+    pageNumber.textContent = `${page + 1} / ${pages} ページ`;
+    previous.disabled = page === 0;
+    next.disabled = page >= pages - 1;
+    for (const button of sortButtons) {
+        button.closest('th').setAttribute('aria-sort', button.dataset.sort === sortKey ? (ascending ? 'ascending' : 'descending') : 'none');
+    }
 }
 
-function reset_filter(){
-    var grid = dijit.byId("grid");
-    dojo.byId("query_string").value = "";
-    grid.setFilter(null);
+function filterAndSort() {
+    const term = query.value.trim().toLocaleLowerCase('ja');
+    visible = records.filter(card => ['id', 'title', 'reference', 'count'].some(key => text(card[key]).toLocaleLowerCase('ja').includes(term)));
+    if (sortKey) visible.sort((a, b) => collator.compare(text(a[sortKey]), text(b[sortKey])) * (ascending ? 1 : -1));
+    render();
 }
 
-dojo.ready(function(){
-    dojo.request.get("./servicecard.json",{
-            handleAs: "json"
-        }).then(function(items) {
-        var datastore = new dojo.data.ItemFileReadStore({ data: { items: items }})
-//			console.log(items);
-        /*set up layout*/
-        var layout = [[
-            {name: 'id', field: 'id', width: '50px'},
-//            {name: 'user', field: 'user_id', width: '50px'},
-            {name: 'タイトル', field: 'title', width: '300px'},
-            {name: 'リファレンス', field: 'reference', width: '250px'},
-            {name: 'count', field: 'count', width: '50px'}
-        ]];
-        /*create a new grid:*/
-        var grid = new dojox.grid.EnhancedGrid({
-            id: 'grid',
-            store: datastore,
-            structure: layout,
-            query:{ title: '*' },
-        //		rowSelector: '20px',
-            autoHeight: true,
-            plugins: {
-                pagination: {
-                    pageSizes: ["25", "50", "100"],
-                    description: true,
-                    sizeSwitch: true,
-                    pageStepper: true,
-                    gotoButton: true,
-                            /*page step to be displayed*/
-                    maxPageStep: 4,
-                            /*position of the pagination bar*/
-                    position: "bottom"
-                }
-                ,filter: {
-                    // Show the closeFilterbarButton at the filter bar
-//                    closeFilterbarButton: true,
-                    // Set the maximum rule count to 5
-//                    ruleCount: 5
-                    // Set the name of the items
-//                    itemsName: "cards"
-                }
+query.addEventListener('input', () => { page = 0; filterAndSort(); });
+document.querySelector('#reset_button').addEventListener('click', () => {
+    query.value = ''; page = 0; filterAndSort(); query.focus();
+});
+pageSize.addEventListener('change', () => { page = 0; render(); });
+previous.addEventListener('click', () => { page--; render(); });
+next.addEventListener('click', () => { page++; render(); });
+for (const button of sortButtons) button.addEventListener('click', () => {
+    ascending = sortKey === button.dataset.sort ? !ascending : true;
+    sortKey = button.dataset.sort;
+    page = 0;
+    filterAndSort();
+});
 
-            }
-        }, document.createElement('div'));
-        /*append the new grid to the div*/
-        dojo.byId("gridDiv").appendChild(grid.domNode);
-
-        /*Call startup() to render the grid*/
-        grid.startup();
-
-        dojo.connect(grid, "onRowClick", grid, function(evt){
-            var idx = evt.rowIndex;
-            var item = this.getItem(idx);
-
-            dojo.byId("title").innerHTML = this.store.getValue(item, "title");
-            dojo.byId("contents").innerHTML = this.store.getValue(item, "contents");
-            dojo.byId("reference").innerHTML = this.store.getValue(item, "reference");
-            dojo.byId("user_id").innerHTML = this.store.getValue(item, "user_id");
-            dojo.byId("card_id").innerHTML = this.store.getValue(item, "id");
-            dojo.byId("created").innerHTML = this.store.getValue(item, "created");
-            var image_src = "./screenshot/" + this.store.getValue(item, "screenshot");
-            console.log(image_src);
-            node = dojo.byId("screenshot");
-            console.log(dojo.getAttr(node, "src"));
-            dojo.setAttr(node, "src", image_src);
-        });
-        dojo.on(dojo.byId("query_string"), "keydown", function(event) {
-            if (event.keyCode == dojo.keys.ENTER) {
-                var grid = dijit.byId("grid");
-                var query = dojo.byId('query_string').value;
-                grid.setFilter({ type: 'string', column: 'anycolumn', condition: 'contains', value: query });
-            }
-        })
-//        dojo.on(dojo.byId("filter_button"), "click", filter);
-        dojo.on(dojo.byId("reset_button"), "click", reset_filter);
-        dojo.byId("query_string").value = "";
-    });
-})
+try {
+    records = await loadCards('./servicecard.json');
+    filterAndSort();
+} catch {
+    status.textContent = 'レポートを読み込めませんでした。ページを再読み込みしてください。';
+    query.disabled = true;
+    pageSize.disabled = true;
+    document.querySelector('#reset_button').disabled = true;
+    for (const button of sortButtons) button.disabled = true;
+}

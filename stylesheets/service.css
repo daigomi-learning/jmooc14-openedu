@@ -46,3 +46,20 @@ background-color: #fffecb;
     background-color: #ffffff;
     font-size: large;
 }
+
+/* Untrusted report fields remain readable as plain text. */
+.report-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.card { max-width: 100%; }
+.card img { max-width: 100%; height: auto; }
+.list-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0; }
+.report-table { table-layout: fixed; }
+.report-table th:first-child { width: 60px; }
+.report-table th:last-child { width: 65px; }
+.report-table td { overflow-wrap: anywhere; white-space: normal !important; }
+.report-title { border: 0; background: transparent; color: #245580; text-align: left; padding: 0; text-decoration: underline; }
+.report-title:focus-visible, th button:focus-visible { outline: 2px solid #245580; outline-offset: 2px; }
+.servicecards { display: flex; flex-wrap: wrap; gap: 12px; padding: 12px; }
+.servicecards > li { max-width: 100%; }
+.servicecards .card { width: 400px; height: 100%; }
+#cards-status { margin: 12px; }
+[hidden] { display: none !important; }

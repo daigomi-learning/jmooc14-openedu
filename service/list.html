@@ -1,48 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.creativecommons.org; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
 	<title>Week2 レポートで提出されたサービス一覧</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css">
-	<style type="text/css">
-	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/resources/dojo.css";
-	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css";
-	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojox/grid/enhanced/resources/claro/EnhancedGrid.css";
-	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css";
-	</style>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="../stylesheets/common.css">
-	<link rel="stylesheet" href="../stylesheets/service.css">
-
-	<script>dojoConfig = {
-		parseOnLoad: true,
-		isDebug: true,
-        locale: 'en-us',
-        extraLocale: ['ja-jp']
-	}
-	</script>
-	<script src='http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<!--
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
--->
-	<script src="../service/list.js"></script>
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53885022-1', 'auto');
-  ga('send', 'pageview');
-	</script>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/common.css">
+    <link rel="stylesheet" href="../stylesheets/service.css">
+    <script type="module" src="./list.js"></script>
 </head>
 <body class="claro container">
 	<div class="row">
@@ -62,17 +30,17 @@
 				<p>
 					<ul>
 						<li>表をクリックすると内容が表示されます。</li>
-						<li>Chromeでは見出しをクリックしてソートが可能です。</li>
+						<li>見出しをクリックして並べ替えできます。検索欄で表の内容を絞り込めます。</li>
 						<li>countは同一タイトルのレポート数です。</li>
 					</ul>
 				</p>
 				<p>
 					<strong>以下の点に注意をしてください。</strong></p>
 					<ul>
-						<li><strong>このページは50Mバイトほどのデータを読み込むため表示に時間がかかります。</strong></li>
+						<li><strong>一覧データ（約4.5MB）を読み込みます。画像はレポートを選択したときに読み込みます。</strong></li>
 						<li>ほぼ提出されたままの内容を自動処理してコンテンツ化しているので、綴りや内容に間違いが含まれていることがあります。</li>
 						<li>リファレンスのURLは正しくないか、宣伝のサイト、危険なサイトの可能性があります。</li>
-						<li>バグが多数残っていると思いますがご容赦ください。PCのChromeで見るのがよいようです。</li>
+						<li>内容と参照URLは提出時の記録です。参照URLはテキストとして表示しています。</li>
 					</ul>
 				</p>
 			</div>
@@ -83,7 +51,7 @@
 			<div class="card">
 				<h3><span id="title">Title</span></h3>
 
-				<div class="contents" id="contents">
+				<div class="contents report-text" id="contents">
 					表をクリックすると内容が表示されます。
 					countは同一タイトルのレポート数です。
 				</div>
@@ -91,18 +59,37 @@
 					<img id="screenshot" src="../images/no_image_available.png">
 				</div>
 				<div>ID #<span id="card_id">card.id</span></div>
-				<div class="reference" id="reference">Reference</div>
+				<div class="reference report-text" id="reference">Reference</div>
 
-				<div class="date"><i>Posted by user #<span id="user_id">user</span> at <span id="created">creation time</span></i></div>
+				<div class="date"><i>Posted <span id="author" hidden>by user #<span id="user_id"></span> </span>at <span id="created"></span></i></div>
 			</div>
 		</div><!-- for layout -->
 		<div class="col-xs-12 col-md-7">
-<!--			<div id="query_string" dojoType="dijit.form.TextBox"></div>-->
-			<input id="query_string" type="text" value="" />
-<!--			<button id="filter_button">フィルター</button>-->
-			<button id="reset_button">リセット</button>
-			<div id="gridDiv" class="grid_list">
-			</div>
+            <div class="list-controls">
+                <label for="query_string">レポートを検索</label>
+                <input id="query_string" type="search" value="" />
+                <button type="button" id="reset_button">リセット</button>
+                <label for="page-size">表示件数</label>
+                <select id="page-size"><option>25</option><option>50</option><option>100</option></select>
+            </div>
+            <p id="list-status" role="status">レポートを読み込んでいます。</p>
+            <noscript>検索・一覧表示にはJavaScriptを有効にしてください。</noscript>
+            <div id="gridDiv" class="grid_list table-responsive">
+                <table class="table table-bordered table-striped report-table">
+                    <thead><tr>
+                        <th scope="col" aria-sort="none"><button type="button" data-sort="id">ID</button></th>
+                        <th scope="col" aria-sort="none"><button type="button" data-sort="title">タイトル</button></th>
+                        <th scope="col" aria-sort="none"><button type="button" data-sort="reference">リファレンス</button></th>
+                        <th scope="col" aria-sort="none"><button type="button" data-sort="count">count</button></th>
+                    </tr></thead>
+                    <tbody id="report-rows"></tbody>
+                </table>
+            </div>
+            <nav class="list-controls" aria-label="レポート一覧のページ操作">
+                <button type="button" id="previous-page" disabled>前へ</button>
+                <span id="page-number" aria-live="polite"></span>
+                <button type="button" id="next-page" disabled>次へ</button>
+            </nav>
 		</div><!-- for layout -->
 	</div>
 	<div class="row" id="footer">

@@ -1,43 +1,15 @@
 <!DOCTYPE html>
-<html >
+<html lang="ja">
 <head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-	<style type="text/css">
-    @import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dijit/themes/claro/claro.css";
-    @import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojox/grid/resources/Grid.css";
-    @import "http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojox/grid/resources/claroGrid.css";
-
-    .dojoxGrid table {
-        margin: 0;
-    }
-	</style>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.creativecommons.org; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week2 レポート統計</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/common.css">
     <link rel="stylesheet" href="../stylesheets/service.css">
-
-	<script>dojoConfig = {
-        parseOnLoad: true,
-        isDebug: true,
-        locale: 'en-us',
-        extraLocale: ['ja-jp']
-    }
-    </script>
-	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.16.1/dojo/dojo.js'></script>
-
-	<script>
-        dojo.require("dojox.grid.DataGrid");
-        dojo.require("dojox.data.CsvStore");
-	</script>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53885022-1', 'auto');
-  ga('send', 'pageview');
-    </script>
-
+    <script defer src="./statistics.js"></script>
 </head>
 <body class="claro container">
     <div class="contents">
@@ -61,22 +33,43 @@
                 <p>サービスのタイトルを提出時のまま集計しました。
                     同じサービスでも表現（つづりのミスを含む）が違うと別々にカウントされています。
                 </p>
-                <span data-dojo-type="dojox.data.CsvStore"
-                      data-dojo-id="store1" data-dojo-props="url:'./top30_titles.csv'">
-                </span>
-
-                <table data-dojo-type="dojox.grid.DataGrid"
-                    data-dojo-props="store:store1,
-                    query:{ title: '*' },
-                    clientSort:true,
-                    autoHeight:true"
-                    style="width: 350px">
-                    <thead>
-                        <tr>
-                            <th width="250px" field="title">タイトル</th>
-                            <th width="100px" field="count">count</th>
-                        </tr>
-                    </thead>
+                <table id="statistics-titles" class="table table-bordered table-striped statistics-table">
+                    <thead><tr>
+                        <th scope="col" aria-sort="none"><button type="button">タイトル</button></th>
+                        <th scope="col" aria-sort="none"><button type="button">count</button></th>
+                    </tr></thead>
+                    <tbody>
+                        <tr><td>manavee</td><td>138</td></tr>
+                        <tr><td>ドットインストール</td><td>60</td></tr>
+                        <tr><td>放送大学</td><td>55</td></tr>
+                        <tr><td>schoo</td><td>44</td></tr>
+                        <tr><td>PhET</td><td>40</td></tr>
+                        <tr><td>TED</td><td>33</td></tr>
+                        <tr><td>Curriki</td><td>31</td></tr>
+                        <tr><td>OUJ MOOC</td><td>29</td></tr>
+                        <tr><td>生涯学習</td><td>26</td></tr>
+                        <tr><td>eラーニング</td><td>26</td></tr>
+                        <tr><td>iTunes U</td><td>22</td></tr>
+                        <tr><td>UTokyo OCW</td><td>21</td></tr>
+                        <tr><td>eboard</td><td>21</td></tr>
+                        <tr><td>TED-Ed</td><td>21</td></tr>
+                        <tr><td>受験サプリ</td><td>21</td></tr>
+                        <tr><td>東大TV</td><td>20</td></tr>
+                        <tr><td>反転授業</td><td>19</td></tr>
+                        <tr><td>ソーシャルラーニング</td><td>19</td></tr>
+                        <tr><td>Udemy</td><td>19</td></tr>
+                        <tr><td>機会促進(Opportunity)</td><td>18</td></tr>
+                        <tr><td>ブレンド型学習</td><td>18</td></tr>
+                        <tr><td>TIES</td><td>18</td></tr>
+                        <tr><td>互恵性</td><td>18</td></tr>
+                        <tr><td>gacco</td><td>17</td></tr>
+                        <tr><td>放送大学オープンコースウェア</td><td>17</td></tr>
+                        <tr><td>互恵性(Reciprocity)</td><td>17</td></tr>
+                        <tr><td>Moodle</td><td>17</td></tr>
+                        <tr><td>機会促進</td><td>16</td></tr>
+                        <tr><td>スクー</td><td>16</td></tr>
+                        <tr><td>アクティブラーニング</td><td>16</td></tr>
+                    </tbody>
                 </table>
             </div>
 
@@ -85,22 +78,43 @@
                 <p>
                     参照・引用元のURLをドメイン別に集計しました。
                 </p>
-                <span data-dojo-type="dojox.data.CsvStore"
-                      data-dojo-id="store2" data-dojo-props="url:'./top30_locations.csv'">
-                </span>
-
-                <table data-dojo-type="dojox.grid.DataGrid"
-                    data-dojo-props="store:store2,
-                    query:{ location: '*' },
-                    clientSort:true,
-                    autoHeight:true"
-                    style="width: 350px">
-                    <thead>
-                        <tr>
-                            <th width="250px" field="location">ドメイン名</th>
-                            <th width="100px" field="count">count</th>
-                        </tr>
-                    </thead>
+                <table id="statistics-locations" class="table table-bordered table-striped statistics-table">
+                    <thead><tr>
+                        <th scope="col" aria-sort="none"><button type="button">ドメイン名</button></th>
+                        <th scope="col" aria-sort="none"><button type="button">count</button></th>
+                    </tr></thead>
+                    <tbody>
+                        <tr><td>manavee.com</td><td>186</td></tr>
+                        <tr><td>ja.wikipedia.org</td><td>168</td></tr>
+                        <tr><td>schoo.jp</td><td>157</td></tr>
+                        <tr><td>www.mext.go.jp</td><td>73</td></tr>
+                        <tr><td>dotinstall.com</td><td>68</td></tr>
+                        <tr><td>www.ouj.ac.jp</td><td>68</td></tr>
+                        <tr><td>www.nhk.or.jp</td><td>66</td></tr>
+                        <tr><td>shige.jamsquare.org</td><td>60</td></tr>
+                        <tr><td>curriki.jp</td><td>56</td></tr>
+                        <tr><td>www.ted.com</td><td>56</td></tr>
+                        <tr><td>www.jocw.jp</td><td>53</td></tr>
+                        <tr><td>www.facebook.com</td><td>51</td></tr>
+                        <tr><td>todai.tv</td><td>49</td></tr>
+                        <tr><td>ocw.u-tokyo.ac.jp</td><td>48</td></tr>
+                        <tr><td>phet.colorado.edu</td><td>47</td></tr>
+                        <tr><td>openstudy.com</td><td>40</td></tr>
+                        <tr><td>share-wis.com</td><td>37</td></tr>
+                        <tr><td>www.youtube.com</td><td>37</td></tr>
+                        <tr><td>creativecommons.jp</td><td>36</td></tr>
+                        <tr><td>www.eboard.jp</td><td>35</td></tr>
+                        <tr><td>www.slideshare.net</td><td>33</td></tr>
+                        <tr><td>ed.ted.com</td><td>33</td></tr>
+                        <tr><td>fukutake.iii.u-tokyo.ac.jp</td><td>32</td></tr>
+                        <tr><td>www.apple.com</td><td>32</td></tr>
+                        <tr><td>www.coursera.org</td><td>32</td></tr>
+                        <tr><td>weblearningplaza.jst.go.jp</td><td>31</td></tr>
+                        <tr><td>edmaps.co</td><td>31</td></tr>
+                        <tr><td>gacco.org</td><td>30</td></tr>
+                        <tr><td>ocw.ouj.ac.jp</td><td>29</td></tr>
+                        <tr><td>e-words.jp</td><td>29</td></tr>
+                    </tbody>
                 </table>
             </div>
 
@@ -109,22 +123,43 @@
                 <p>
                     よく使われた単語を集計しました。
                 </p>
-                <span data-dojo-type="dojox.data.CsvStore"
-                      data-dojo-id="store3" data-dojo-props="url:'./top30_words.csv'">
-                </span>
-
-                <table data-dojo-type="dojox.grid.DataGrid"
-                    data-dojo-props="store:store3,
-                    query:{ word: '*' },
-                    clientSort:true,
-                    autoHeight:true"
-                    style="width: 350px">
-                    <thead>
-                        <tr>
-                            <th width="250px" field="word">ドメイン名</th>
-                            <th width="100px" field="count">count</th>
-                        </tr>
-                    </thead>
+                <table id="statistics-words" class="table table-bordered table-striped statistics-table">
+                    <thead><tr>
+                        <th scope="col" aria-sort="none"><button type="button">単語</button></th>
+                        <th scope="col" aria-sort="none"><button type="button">count</button></th>
+                    </tr></thead>
+                    <tbody>
+                        <tr><td>学習</td><td>3036</td></tr>
+                        <tr><td>教育</td><td>2567</td></tr>
+                        <tr><td>大学</td><td>2013</td></tr>
+                        <tr><td>提供</td><td>1370</td></tr>
+                        <tr><td>授業</td><td>1317</td></tr>
+                        <tr><td>無料</td><td>1169</td></tr>
+                        <tr><td>教材</td><td>1088</td></tr>
+                        <tr><td>公開</td><td>1067</td></tr>
+                        <tr><td>講義</td><td>1035</td></tr>
+                        <tr><td>サービス</td><td>888</td></tr>
+                        <tr><td>オープン</td><td>874</td></tr>
+                        <tr><td>利用</td><td>852</td></tr>
+                        <tr><td>サイト</td><td>846</td></tr>
+                        <tr><td>インターネット</td><td>830</td></tr>
+                        <tr><td>オンライン</td><td>796</td></tr>
+                        <tr><td>動画</td><td>786</td></tr>
+                        <tr><td>講座</td><td>782</td></tr>
+                        <tr><td>日本</td><td>649</td></tr>
+                        <tr><td>情報</td><td>622</td></tr>
+                        <tr><td>受講</td><td>574</td></tr>
+                        <tr><td>可能</td><td>545</td></tr>
+                        <tr><td>社会</td><td>501</td></tr>
+                        <tr><td>学生</td><td>491</td></tr>
+                        <tr><td>コンテンツ</td><td>464</td></tr>
+                        <tr><td>コース</td><td>458</td></tr>
+                        <tr><td>開発</td><td>444</td></tr>
+                        <tr><td>技術</td><td>434</td></tr>
+                        <tr><td>配信</td><td>427</td></tr>
+                        <tr><td>世界</td><td>427</td></tr>
+                        <tr><td>システム</td><td>418</td></tr>
+                    </tbody>
                 </table>
             </div>
 

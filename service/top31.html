@@ -1,47 +1,17 @@
-<html ng-app="serviceCardApp">
+<!DOCTYPE html>
+<html lang="ja">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-resource.min.js"></script>
-    <script type="text/javascript">
-    var serviceCardApp = angular.module('serviceCardApp', ["ngResource"]);
-    serviceCardApp.controller('ServiceCardCtrl', ["$scope", "$resource", function ($scope, $resource) {
-        var contents = $resource("./top30cards.json");
-        // List（一番外側 []）を取得する場合は query()
-        // Object（一番外側が {}） get() を使用する
-        $scope.servicecards = contents.query();
-    }]);
-    </script>
-    <style>
-    body { font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
-        background-color: #f1f1f1; /*#fafafc;*/　}
-    /*.card { width: 350px; padding: 0.5em; float: left; margin: 10px; }*/
-    .card {
-        font-size: 14px; width: 400px; /*height: 300px; */float: left; padding: 10px 10px 10px 10px;
-        background-color: #ffffff;
-        border: 1px solid #f2f2f5;
-    }
-
-    .servicecards li { list-style-type: none }
-    h3 { font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
-    .content { font-size: 14px; }
-    .date { font-size: 12px; }
-    .header {
-        margin: 30px; padding: 15px;
-        background-color: #ffffff;
-    }
-    </style>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-53885022-1', 'auto');
-  ga('send', 'pageview');
-    </script>
-
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://i.creativecommons.org; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week2 レポート・31のサービス</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/common.css">
+    <link rel="stylesheet" href="../stylesheets/service.css">
+    <script type="module" src="./top31.js"></script>
   </head>
-<body ng-controller="ServiceCardCtrl">
+<body>
     <div class="header">
         <p>
             「反転授業」で用いるために、Week2レポートで提出されたサービスの中から、
@@ -52,22 +22,8 @@
             主にワークショップでの使いやすさの観点から選んだものです。
         </p>
     </div>
-    <ul class="servicecards">
-        <li ng-repeat="card in servicecards | filter:query">
-            <div class="card" with="350px">
-                <h3>{{card.id}} {{card.title}}</h3>
-
-                <div class="contents">
-                    {{card.contents}}
-                </div>
-                <div class="right">
-                    <img width="300" ng-src="./screenshot/{{card.screenshot}}"/>
-                </div>
-                <div class="reference">{{card.reference}}</div>
-
-                <div class="date"><i>Posted at {{card.created}}</i></div>
-            </div>
-        </li>
-    </ul>
+    <p id="cards-status" role="status">レポートを読み込んでいます。</p>
+    <noscript>カード表示にはJavaScriptを有効にしてください。</noscript>
+    <ul id="servicecards" class="servicecards"></ul>
 </body>
 </html>
